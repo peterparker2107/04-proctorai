@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --clinical-bg: oklch(0.98 0.005 25);
+  --forensic-red: oklch(0.55 0.22 25);
+}
+
+body {
+  margin: 0;
+  background-color: var(--clinical-bg);
+  color: #0f172a;
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Forensic paper pattern */
+.bg-clinical-pattern {
+  background-color: #fafbfc;
+  background-image: radial-gradient(#e2e8f0 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+}
+
+/* Custom scrollbars for timeline / event logs */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Pulse badge animation */
+@keyframes forensic-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(220, 38, 38, 0.8);
+  }
+}
+
+.animate-forensic-glow {
+  animation: forensic-glow 2s infinite ease-in-out;
+}
+
+html.dark body {
+  background-color: #090d16;
+  color: #f8fafc;
+}
+
+html.dark .bg-clinical-pattern {
+  background-color: #090d16;
+  background-image: radial-gradient(#1e293b 0.75px, transparent 0.75px);
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
